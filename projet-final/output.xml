@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-07-26T16:00:19.036492" rpa="false" schemaversion="5">
+<suite id="s1" name="Test" source="C:\Users\pilou\Documents\pilou\Final-Test\projet-final\test.robot">
+<test id="s1-t1" name="Connexion" line="10">
+<kw name="Login succefully">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:19.237356" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:5174/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_argument("disable-search-engine-choice-screen");</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-07-26T16:00:19.237356" elapsed="1.889761"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:21.134985" level="INFO">Page title is 'Blog | BackOffice'.</msg>
+<arg>Blog | BackOffice</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2024-07-26T16:00:21.127117" elapsed="0.007868"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:21.135996" level="INFO">Typing text 'toto@toto.fr' into text field 'email'.</msg>
+<arg>email</arg>
+<arg>toto@toto.fr</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-26T16:00:21.135996" elapsed="0.148164"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:21.284160" level="INFO">Typing text 'Toto*1234' into text field 'password'.</msg>
+<arg>password</arg>
+<arg>Toto*1234</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-26T16:00:21.284160" elapsed="0.146861"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:21.431996" level="INFO">Clicking button 'Se connecter'.</msg>
+<arg>Se connecter</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-26T16:00:21.431021" elapsed="0.092037"/>
+</kw>
+<status status="PASS" start="2024-07-26T16:00:19.236307" elapsed="2.286751"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Admin</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-07-26T16:00:21.525059" elapsed="0.433548"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:21.972649" level="INFO">Current page contains text 'Admin'.</msg>
+<arg>Admin</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-07-26T16:00:21.959609" elapsed="0.013040"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-07-26T16:00:21.973717" elapsed="2.161147"/>
+</kw>
+<doc>Vérifie qu'un utilisateur peut se connecter avec succès.</doc>
+<status status="PASS" start="2024-07-26T16:00:19.235306" elapsed="4.900598"/>
+</test>
+<test id="s1-t2" name="Modifier son profil" line="17">
+<kw name="Login succefully">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:24.139864" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:5174/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_argument("disable-search-engine-choice-screen");</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-07-26T16:00:24.139864" elapsed="1.936093"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:26.086067" level="INFO">Page title is 'Blog | BackOffice'.</msg>
+<arg>Blog | BackOffice</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2024-07-26T16:00:26.075957" elapsed="0.010110"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:26.086067" level="INFO">Typing text 'toto@toto.fr' into text field 'email'.</msg>
+<arg>email</arg>
+<arg>toto@toto.fr</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-26T16:00:26.086067" elapsed="0.203878"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:26.289945" level="INFO">Typing text 'Toto*1234' into text field 'password'.</msg>
+<arg>password</arg>
+<arg>Toto*1234</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-26T16:00:26.289945" elapsed="0.159431"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:26.449376" level="INFO">Clicking button 'Se connecter'.</msg>
+<arg>Se connecter</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-26T16:00:26.449376" elapsed="0.092862"/>
+</kw>
+<status status="PASS" start="2024-07-26T16:00:24.139864" elapsed="2.403387"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Admin</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-07-26T16:00:26.544253" elapsed="0.654678"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:27.215502" level="INFO">Current page contains text 'Admin'.</msg>
+<arg>Admin</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-07-26T16:00:27.199930" elapsed="0.015572"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:27.216012" level="INFO">Clicking button '//button[@id="headlessui-menu-button-:r5:"]'.</msg>
+<arg>//button[@id="headlessui-menu-button-:r5:"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-26T16:00:27.216012" elapsed="0.114029"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:27.332042" level="INFO">Clicking link '//a[@href="/admin/profile"]'.</msg>
+<arg>//a[@href="/admin/profile"]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-26T16:00:27.332042" elapsed="0.103531"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:27.443337" level="INFO">Page title is 'Blog | BackOffice'.</msg>
+<arg>Blog | BackOffice</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2024-07-26T16:00:27.436574" elapsed="0.006763"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:27.457628" level="INFO">Current page contains text 'Admin'.</msg>
+<arg>Admin</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-07-26T16:00:27.443337" elapsed="0.014291"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:27.480059" level="INFO">Current page contains text 'Prénom'.</msg>
+<arg>Prénom</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-07-26T16:00:27.458722" elapsed="0.021337"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:27.496168" level="INFO">Current page contains text 'Nom'.</msg>
+<arg>Nom</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-07-26T16:00:27.481077" elapsed="0.015091"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:27.511653" level="INFO">Current page contains text 'Pseudo'.</msg>
+<arg>Pseudo</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-07-26T16:00:27.497248" elapsed="0.014405"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:27.535194" level="INFO">Current page contains text 'Email'.</msg>
+<arg>Email</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-07-26T16:00:27.512663" elapsed="0.022531"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:27.552853" level="INFO">Current page contains text 'Status'.</msg>
+<arg>Status</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-07-26T16:00:27.535194" elapsed="0.017659"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:27.569546" level="INFO">Current page contains text 'Avatar'.</msg>
+<arg>Avatar</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-07-26T16:00:27.553849" elapsed="0.015697"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:27.570664" level="INFO">Clicking button 'Mettre à jour mes données'.</msg>
+<arg>Mettre à jour mes données</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-26T16:00:27.570664" elapsed="0.139914"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:27.711584" level="INFO">Typing text 'Toto' into text field 'firstname'.</msg>
+<arg>firstname</arg>
+<arg>Toto</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-26T16:00:27.711584" elapsed="0.115792"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:27.827376" level="INFO">Typing text 'Toto' into text field 'lastname'.</msg>
+<arg>lastname</arg>
+<arg>Toto</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-26T16:00:27.827376" elapsed="0.121144"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:27.949533" level="INFO">Clicking button 'Valider'.</msg>
+<arg>Valider</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-26T16:00:27.948520" elapsed="0.077154"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-07-26T16:00:28.026694" elapsed="2.127763"/>
+</kw>
+<doc>Vérifie qu'un utilisateur peut modifier son profil.</doc>
+<status status="PASS" start="2024-07-26T16:00:24.137843" elapsed="6.017791"/>
+</test>
+<test id="s1-t3" name="Se déconnecter" line="38">
+<kw name="Login succefully">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:30.160022" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:5174/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_argument("disable-search-engine-choice-screen");</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-07-26T16:00:30.159029" elapsed="1.933134"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:32.103162" level="INFO">Page title is 'Blog | BackOffice'.</msg>
+<arg>Blog | BackOffice</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2024-07-26T16:00:32.092163" elapsed="0.012105"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:32.104268" level="INFO">Typing text 'toto@toto.fr' into text field 'email'.</msg>
+<arg>email</arg>
+<arg>toto@toto.fr</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-26T16:00:32.104268" elapsed="0.187458"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:32.291726" level="INFO">Typing text 'Toto*1234' into text field 'password'.</msg>
+<arg>password</arg>
+<arg>Toto*1234</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-26T16:00:32.291726" elapsed="0.128677"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:32.421422" level="INFO">Clicking button 'Se connecter'.</msg>
+<arg>Se connecter</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-26T16:00:32.420403" elapsed="0.087899"/>
+</kw>
+<status status="PASS" start="2024-07-26T16:00:30.159029" elapsed="2.349273"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Admin</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-07-26T16:00:32.509301" elapsed="0.648684"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:33.171616" level="INFO">Current page contains text 'Admin'.</msg>
+<arg>Admin</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-07-26T16:00:33.158986" elapsed="0.012630"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:33.173562" level="INFO">Clicking button '//button[@id="headlessui-menu-button-:r5:"]'.</msg>
+<arg>//button[@id="headlessui-menu-button-:r5:"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-26T16:00:33.172669" elapsed="0.116781"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:33.289959" level="INFO">Clicking button 'Déconnexion'.</msg>
+<arg>Déconnexion</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-26T16:00:33.289959" elapsed="0.102285"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:33.414103" level="INFO">Current page contains text 'Blog'.</msg>
+<arg>Blog</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-07-26T16:00:33.393254" elapsed="0.020849"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-07-26T16:00:33.429523" level="INFO">Current page contains text 'Connectez-vous !'.</msg>
+<arg>Connectez-vous !</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-07-26T16:00:33.415212" elapsed="0.014311"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-07-26T16:00:33.429523" elapsed="2.120687"/>
+</kw>
+<doc>Vérifie qu'un utilisateur peut se déconnecter.</doc>
+<status status="PASS" start="2024-07-26T16:00:30.158007" elapsed="5.393200"/>
+</test>
+<status status="PASS" start="2024-07-26T16:00:19.037386" elapsed="16.517103"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

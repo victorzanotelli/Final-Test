@@ -1,0 +1,142 @@
+Scénario de Test : voir une catégorie
+ID du Test : TSTGETCATBYID-001
+
+Titre du Test : voir une categorie - API
+
+Pré-conditions :
+
+être connecté
+
+Étapes :
+
+Inscrire dans l'outil de test API l'adresse du serveur API à tester : http://localhost:5555/api/categories/{{id}}
+Choisir la requête GET.
+
+Résultats attendus :
+
+Code status 200.
+La réponse est un objet.
+Le schéma de la réponse est 
+Success est à true
+L'objet data à la propriété ……
+L'objet data à la propriété ……
+L'objet data à la propriété ……
+L'objet data à la propriété ……
+L'objet data à la propriété ……
+L'objet data à la propriété ……
+L'objet data à la propriété ……
+La propriété …… n'est pas vide
+La propriété …… n'est pas vide
+La propriété …… n'est pas vide
+La propriété …… n'est pas vide
+La propriété …… n'est pas vide
+La propriété …… n'est pas vide
+Les catégories sont listés dans le data de la réponse
+
+Données utilisées:
+paramètre du chemin {{id}} : id enregistré dans l'environnement
+
+
+ID du Test : TSTGETCATBYID-002
+
+Titre du Test : voir une categorie - front
+
+Pré-conditions :
+
+être connecté en tant qu'administrateur et sur le Dashboard administrateur
+
+Étapes :
+
+
+Résultats attendus :
+
+
+Post-conditions:
+
+
+
+
+ID du Test : TSTGETCATBYID-003
+
+Titre du Test : voir une categorie - front
+
+Pré-conditions :
+
+être connecté en tant qu'utilisateur et sur la page Dashboard utilisateur
+
+Étapes :
+
+
+Résultats attendus :
+
+
+Post-conditions:
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ID du Test : TSTGETCATBYID-004
+
+Titre du Test : voir une categorie - API
+
+Pré-conditions :
+
+être connecté
+
+Étapes :
+
+Inscrire dans l'outil de test API l'adresse du serveur API à tester : http://localhost:5555/api/categories/cat
+Choisir la requête GET.
+
+Résultats attendus :
+
+Code status 404.
+La réponse est un objet.
+La propriété message existe dans la réponse
+la réponse à une propriété "success"
+la réponse à une propriété "status"
+le message de la réponse doit contenir : "Category not found"
+le success est à false
+
+Données utilisées:
+un id n'existant pas ou composé de lettre et/ou sans chiffre
+
+
+ID du Test : TSTGETALLCAT-005
+
+Titre du Test : voir une categorie - front
+
+Pré-conditions :
+
+être connecté en tant qu'administrateur et sur le Dashboard administrateur
+
+Étapes :
+
+
+Résultats attendus :
+
+
+Post-conditions:
+
+
+
+
+ID du Test : TSTGETALLCAT-006
+
+Titre du Test : voir une categorie - front
+
+Pré-conditions :
+
+être connecté en tant qu'utilisateur et sur la page Dashboard utilisateur
+
+Étapes :
+
+
+Résultats attendus :
+
+
+Post-conditions:
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+

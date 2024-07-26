@@ -1,0 +1,261 @@
+Scénario de Test : créer une catégorie
+ID du Test : TSTCREATECAT-001
+
+Titre du Test : Création d'une catégorie - API
+
+Pré-conditions :
+
+être connecté en tant qu'administrateur
+
+Étapes :
+
+Inscrire dans l'outil de test API l'adresse du serveur API à tester : http://localhost:5555/api/categories.
+Choisir la requête POST.
+
+Résultats attendus :
+
+Code status 201.
+La réponse est un objet.
+Success est à true
+Le schéma de la réponse est
+L'objet data à la propriété "fieldCount"
+L'objet data à la propriété "affectedRows"
+L'objet data à la propriété "insertId"
+L'objet data à la propriété "info"
+L'objet data à la propriété "serverStatus"
+L'objet data à la propriété "warningStatus"
+L'objet data à la propriété "changedRows"
+La propriété "fieldCount" est un nombre
+La propriété "affectedRows" est un nombre
+La propriété "inserId" est un nombre
+La propriété "info" est une chaine de caractère
+La propriété "serverStatus" est un nombre
+La propriété "warningStatus" est un nombre
+La propriété "changedRows" est un nombre
+
+Post-conditions:
+La nouvelle catégorie est enregistrée dans la base de données
+
+Enregistrements à réaliser :
+Enregistrer dans une variable d'environnement l'id de la nouvelle catégorie
+
+Données utilisées:
+Avoir le token de l'administrateur
+{
+    "name":"Sport"
+}
+
+ID du Test : TSTCREATECAT-002
+
+Titre du Test : Création d'une catégorie - API
+
+Pré-conditions :
+
+être connecté en tant qu'administrateur
+
+Étapes :
+
+
+Résultats attendus :
+
+
+Post-conditions:
+
+
+Données utilisées:
+    "name":"Sport"
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ID du Test : TSTCREATECAT-003
+
+Titre du Test : Création d'une catégorie avec un nom dont la longueur est inférieur à 3 caractères - API
+
+Pré-conditions :
+
+être connecté en tant qu'administrateur
+
+Étapes :
+
+Inscrire dans l'outil de test API l'adresse du serveur API à tester : http://localhost:5555/api/categories.
+Choisir la requête POST.
+
+Résultats attendus :
+
+Code status 401.
+La réponse est un objet.
+La réponse à une propriété "success"
+La réponse à une propriété "message"
+La réponse à une propriété "status"
+success est à false
+Le message de la réponse contient “Le titre doit avoir au minimum 3 lettres, sans chiffres ni caractères spéciaux"
+
+Post-conditions:
+La nouvelle catégorie n'est pas enregistrée dans la base de données
+
+Données utilisées:
+Avoir le token de l'administrateur
+{
+    "name":"Sp"
+}
+
+ID du Test : TSTCREATECAT-004
+
+Titre du Test : Création d'une catégorie avec un nom dont la longueur est inférieur à 3 caractères - API
+
+Pré-conditions :
+
+être connecté en tant qu'administrateur
+
+Étapes :
+
+
+Résultats attendus :
+
+
+Post-conditions:
+
+
+Données utilisées:
+    "name":"Sp"
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+ID du Test : TSTCREATECAT-005
+
+Titre du Test : Création d'une catégorie sans nom - API
+
+Pré-conditions :
+
+être connecté en tant qu'administrateur
+
+Étapes :
+
+Inscrire dans l'outil de test API l'adresse du serveur API à tester : http://localhost:5555/api/categories.
+Choisir la requête POST.
+
+Résultats attendus :
+
+Code status 500.
+La réponse est un objet.
+La réponse à une propriété "success"
+La réponse à une propriété "message"
+La réponse à une propriété "status"
+success est à false
+Le message de la réponse n'est pas vide
+
+Post-conditions:
+La nouvelle catégorie n'est pas enregistrée dans la base de données
+
+Données utilisées:
+
+
+ID du Test : TSTCREATECAT-006
+
+Titre du Test : Création d'une catégorie sans nom - API
+
+Pré-conditions :
+
+être connecté en tant qu'administrateur
+
+Étapes :
+
+
+Résultats attendus :
+
+
+Post-conditions:
+
+
+Données utilisées:
+Avoir le token de l'administrateur
+    "name":"Sp"
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+ID du Test : TSTCREATECAT-007
+
+Titre du Test : Création d'une catégorie en tant qu'utilisateur - API
+
+Pré-conditions :
+
+être connecté en tant qu'utilisateur
+
+Étapes :
+
+Inscrire dans l'outil de test API l'adresse du serveur API à tester : http://localhost:5555/api/categories.
+Choisir la requête POST.
+
+Résultats attendus :
+
+Code status 401.
+La réponse est un objet.
+La réponse à une propriété "success"
+La réponse à une propriété "message"
+La réponse à une propriété "status"
+success est à false
+Le message de la réponse contient ……………………………………
+
+Post-conditions:
+La nouvelle catégorie n'est pas enregistrée dans la base de données
+
+Données utilisées:
+Avoir le token de l'administrateur
+{
+    "name":"Sport"
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ID du Test : TSTCREATECAT-008
+
+Titre du Test : Création d'une catégorie avec un nom de catégorie existant - API
+
+Pré-conditions :
+
+être connecté en tant qu'administrateur
+
+Étapes :
+
+Inscrire dans l'outil de test API l'adresse du serveur API à tester : http://localhost:5555/api/categories.
+Choisir la requête POST.
+
+Résultats attendus :
+
+Code status 500.
+La réponse est un objet.
+Success est à true
+La réponse à une propriété "success"
+La réponse à une propriété "message"
+La réponse à une propriété "status"
+Le message de la réponse contient ……………………………………
+
+Post-conditions:
+La nouvelle catégorie est enregistrée dans la base de données
+
+Enregistrements à réaliser :
+Enregistrer dans une variable d'environnement l'id de la nouvelle catégorie
+
+Données utilisées:
+Avoir le token de l'administrateur
+{
+    "name":"Sport"
+}
+
+ID du Test : TSTCREATECAT-009
+
+Titre du Test : Création d'une catégorie avec un nom de catégorie existant - front
+
+Pré-conditions :
+
+être connecté en tant qu'administrateur
+
+Étapes :
+
+
+Résultats attendus :
+
+
+Post-conditions:
+
+
+Données utilisées:
+    "name":"Sport"
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------

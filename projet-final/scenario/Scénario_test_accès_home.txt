@@ -1,0 +1,29 @@
+Scénario de Test : Accès à la page home
+ID du Test : TSTHOME-001
+
+Titre du Test : Vérification de l'accès à la page home - API
+
+Pré-conditions :
+
+L'utilisateur est connecté à internet et est sur un navigateur.
+
+Étapes :
+
+Inscrire dans l'outil de test API l'adresse du serveur API à tester : http://localhost:5555/api.
+Choisir la requête GET.
+
+Résultats attendus :
+
+Code status 200.
+La réponse est un objet.
+le message de la réponse doit contenir : "http"
+
+ID du Test : TSTHOME-002
+
+Titre du Test : Vérification de l'accès à la page home - front
+
+Pré-conditions :
+
+L'utilisateur est connecté à internet et est sur un navigateur.
+
+Étapes :

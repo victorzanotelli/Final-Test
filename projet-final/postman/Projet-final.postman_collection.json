@@ -1,0 +1,4715 @@
+{
+	"info": {
+		"_postman_id": "73f20898-db11-4d25-95e7-266d4c140e83",
+		"name": "Projet-final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36210253",
+		"_collection_link": "https://projet-final-8210.postman.co/workspace/projet-final~4e888354-135c-484a-ba45-cb31584e67eb/collection/36210253-73f20898-db11-4d25-95e7-266d4c140e83?action=share&source=collection_link&creator=36210253"
+	},
+	"item": [
+		{
+			"name": "home",
+			"item": [
+				{
+					"name": "home page",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const res = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response message exists and has the correct message\", function() {\r",
+									"    pm.expect(res).to.be.an(\"object\");\r",
+									"    pm.expect(res.message).to.include(\"http\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}",
+							"host": [
+								"{{baseUrl}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "add a user",
+			"item": [
+				{
+					"name": "add a user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const res = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"message exist and have the good message\", function () {\r",
+									"    pm.expect(res.message).to.exist;\r",
+									"    pm.expect(res).to.have.property(\"success\");\r",
+									"    pm.expect(res).to.have.property(\"status\");\r",
+									"    pm.expect(res.message).to.include(\"Félicitaion ! votre compte à été bien créer\");\r",
+									"    pm.expect(res).to.be.an(\"object\");\r",
+									"    pm.expect(res.success).to.equal(true);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstname\": \"toto\",\r\n  \"lastname\": \"grandtoto\",\r\n  \"email\": \"toto@toto.fr\",\r\n  \"password\": \"Toto*1234\",\r\n  \"pseudo\": \"toto\",\r\n  \"avatar\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add a user sans avatar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const res = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"message exist and have the good message\", function () {\r",
+									"    pm.expect(res.message).to.exist;\r",
+									"    pm.expect(res).to.have.property(\"success\");\r",
+									"    pm.expect(res).to.have.property(\"status\");\r",
+									"    pm.expect(res.message).to.include(\"Félicitaion ! votre compte à été bien créer\");\r",
+									"    pm.expect(res).to.be.an(\"object\");\r",
+									"    pm.expect(res.success).to.equal(true);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstname\": \"toto\",\r\n  \"lastname\": \"grandtoto\",\r\n  \"email\": \"toto2122@toto.fr\",\r\n  \"password\": \"Toto*1234\",\r\n  \"pseudo\": \"toto\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add a user sans lastname",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const res = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"message exist and have the good message\", function () {\r",
+									"    pm.expect(res.message).to.exist;\r",
+									"    pm.expect(res).to.have.property(\"success\");\r",
+									"    pm.expect(res).to.have.property(\"status\");\r",
+									"    pm.expect(res.message).to.not.be.empty;\r",
+									"    pm.expect(res).to.be.an(\"object\");\r",
+									"    pm.expect(res.success).to.equal(false);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstname\": \"toto\",\r\n  \"email\": \"toto115158@toto.fr\",\r\n  \"password\": \"Toto*1234\",\r\n  \"pseudo\": \"toto\",\r\n  \"avatar\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add a user sans firstname",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const res = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"message exist and have the good message\", function () {\r",
+									"    pm.expect(res.message).to.exist;\r",
+									"    pm.expect(res).to.have.property(\"success\");\r",
+									"    pm.expect(res).to.have.property(\"status\");\r",
+									"    pm.expect(res.message).to.not.be.empty;\r",
+									"    pm.expect(res).to.be.an(\"object\");\r",
+									"    pm.expect(res.success).to.equal(false);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n//   \"firstname\": \"toto\",\r\n  \"lastname\": \"grandtoto\",\r\n  \"email\": \"toto1585441581@toto.fr\",\r\n  \"password\": \"Toto*1234\",\r\n  \"pseudo\": \"toto\",\r\n  \"avatar\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add a user sans pseudo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const res = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 500\", function () {\r",
+									"    pm.response.to.have.status(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"message exist and have the good message\", function () {\r",
+									"    pm.expect(res.message).to.exist;\r",
+									"    pm.expect(res).to.have.property(\"success\");\r",
+									"    pm.expect(res).to.have.property(\"status\");\r",
+									"    pm.expect(res.message).to.not.be.empty;\r",
+									"    pm.expect(res).to.be.an(\"object\");\r",
+									"    pm.expect(res.success).to.equal(false);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstname\": \"toto\",\r\n  \"lastname\": \"grandtoto\",\r\n  \"email\": \"toto15458485@toto.fr\",\r\n  \"password\": \"Toto*1234\",\r\n//   \"pseudo\": \"toto\",\r\n  \"avatar\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add a user email existant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const res = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 409\", function () {\r",
+									"    pm.response.to.have.status(409);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"message exist and have the good message\", function () {\r",
+									"    pm.expect(res.message).to.exist;\r",
+									"    pm.expect(res).to.have.property(\"success\");\r",
+									"    pm.expect(res).to.have.property(\"status\");\r",
+									"    pm.expect(res.message).to.include(\"est déjà utilisé par un autre utlisateur\");\r",
+									"    pm.expect(res).to.be.an(\"object\");\r",
+									"    pm.expect(res.success).to.equal(false);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstname\": \"toto\",\r\n  \"lastname\": \"grandtoto\",\r\n  \"email\": \"toto@toto.fr\",\r\n  \"password\": \"Toto*1234\",\r\n  \"pseudo\": \"toto\",\r\n  \"avatar\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add a user sans email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const res = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"message exist and have the good message\", function () {\r",
+									"    pm.expect(res.message).to.exist;\r",
+									"    pm.expect(res).to.have.property(\"success\");\r",
+									"    pm.expect(res).to.have.property(\"status\");\r",
+									"    pm.expect(res.message).to.include(\"Vos données ne sont pas valides\");\r",
+									"    pm.expect(res).to.be.an(\"object\");\r",
+									"    pm.expect(res.success).to.equal(false);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstname\": \"toto\",\r\n  \"lastname\": \"grandtoto\",\r\n  \"password\": \"Toto*1234\",\r\n  \"pseudo\": \"toto\",\r\n  \"avatar\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add a user sans password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const res = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"message exist and have the good message\", function () {\r",
+									"    pm.expect(res.message).to.exist;\r",
+									"    pm.expect(res).to.have.property(\"success\");\r",
+									"    pm.expect(res).to.have.property(\"status\");\r",
+									"    pm.expect(res.message).to.include(\"Vos données ne sont pas valides\");\r",
+									"    pm.expect(res).to.be.an(\"object\");\r",
+									"    pm.expect(res.success).to.equal(false);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstname\": \"toto\",\r\n  \"lastname\": \"grandtoto\",\r\n  \"email\":\"toto225959595@toto.com\",\r\n  \"pseudo\": \"toto\",\r\n  \"avatar\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "login",
+					"item": [
+						{
+							"name": "login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"\r",
+											"pm.environment.set(\"token\", res.token);\r",
+											"\r",
+											"const schema = {\r",
+											"    \"success\": \"boolean\",\r",
+											"    \"status\": \"number\",\r",
+											"    \"message\": \"string\",\r",
+											"    \"token\": \"string\"\r",
+											"}\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"response schema, message, sucess and token is OK\", function () {\r",
+											"    pm.response.to.have.jsonSchema(schema);\r",
+											"    pm.expect(res).to.be.an(\"object\");\r",
+											"    pm.expect(res.success).to.equal(true);\r",
+											"    pm.expect(res.message).to.include(\"Bienvenu\");\r",
+											"    pm.expect(res.token).to.not.be.empty;\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"toto@toto.fr\",\r\n  \"password\": \"Toto*1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login with wrong email",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {",
+											"    pm.response.to.have.status(401);",
+											"});",
+											"",
+											"pm.test(\"il y a un message d'alerte\", function (){",
+											"    const jres = pm.response.json();",
+											"    const msg = \"l'adresse mail n'existe pas ou votre compte est désactivé\"",
+											"",
+											"    pm.expect(jres.message).to.equal(msg);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"toto@toto.com\",\n  \"password\": \"Toto*1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login with wrong password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {",
+											"    pm.response.to.have.status(401);",
+											"});",
+											"",
+											"pm.test(\"il y a un message d'alerte\", function (){",
+											"    const jres = pm.response.json();",
+											"    const msg = \"verifier vos informations \"",
+											"",
+											"    pm.expect(jres.message).to.equal(msg);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"toto17@toto.fr\",\n  \"password\": \"Toto*12345\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login with no email",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"il y a un message d'alerte\", function (){",
+											"    const jres = pm.response.json();",
+											"    const msg = \"Vos données ne sont pas valides\"",
+											"",
+											"    pm.expect(jres.message).to.equal(msg);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"\",\n  \"password\": \"Toto*1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login with no pw",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"il y a un message d'alerte\", function (){",
+											"    const jres = pm.response.json();",
+											"    const msg = \"Vos données ne sont pas valides\"",
+											"",
+											"    pm.expect(jres.message).to.equal(msg);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"toto@toto.fr\",\n  \"password\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "update password",
+					"item": [
+						{
+							"name": "update password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"message exist and have the good message\", function () {\r",
+											"    pm.expect(res.message).to.exist;\r",
+											"    pm.expect(res).to.have.property(\"success\");\r",
+											"    pm.expect(res).to.have.property(\"status\");\r",
+											"    pm.expect(res.message).to.include(\"Votre oppération est réalisée avec success !\");\r",
+											"    pm.expect(res).to.be.an(\"object\");\r",
+											"    pm.expect(res.success).to.equal(true);\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"oldPassword\": \"Toto*1234\",\r\n    \"newPassword\": \"Toto*1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/reset-password",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"reset-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update password mauvais mot de passe ancien",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"message exist and have the good message\", function () {\r",
+											"    pm.expect(res.message).to.exist;\r",
+											"    pm.expect(res).to.have.property(\"success\");\r",
+											"    pm.expect(res).to.have.property(\"status\");\r",
+											"    pm.expect(res.message).to.include(\"Vérifier vos données !\");\r",
+											"    pm.expect(res).to.be.an(\"object\");\r",
+											"    pm.expect(res.success).to.equal(false);\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"oldPassword\": \"Toto*12345888\",\r\n    \"newPassword\": \"Toto*12345887\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/reset-password",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"reset-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update password mot de passe nouveau ne respecte pas les conditions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"message exist and have the good message\", function () {\r",
+											"    pm.expect(res.message).to.exist;\r",
+											"    pm.expect(res).to.have.property(\"success\");\r",
+											"    pm.expect(res).to.have.property(\"status\");\r",
+											"    pm.expect(res.message).to.include(\"Vos données ne sont pas valides\");\r",
+											"    pm.expect(res).to.be.an(\"object\");\r",
+											"    pm.expect(res.success).to.equal(false);\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"oldPassword\": \"Toto*1234\",\r\n    \"newPassword\": \"Toto\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/reset-password",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"reset-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update password no connect",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"message exist and have the good message\", function () {\r",
+											"    pm.expect(res.message).to.exist;\r",
+											"    pm.expect(res).to.have.property(\"success\");\r",
+											"    pm.expect(res).to.have.property(\"status\");\r",
+											"    pm.expect(res.message).to.include(\"Vous n'êtes pas authorisé à realiser cette action, Connectz-vous !\");\r",
+											"    pm.expect(res).to.be.an(\"object\");\r",
+											"    pm.expect(res.success).to.equal(false);\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"toto@toto.fr\",\r\n    \"oldPassword\": \"Toto*123456\",\r\n    \"newPassword\": \"Toto*1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/reset-password",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"reset-password"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update user",
+					"item": [
+						{
+							"name": "Update User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"response, success, status and message exist and are ok\", function() {\r",
+											"    pm.expect(res).to.have.property(\"success\", true);\r",
+											"    pm.expect(res).to.have.property(\"status\");\r",
+											"    pm.expect(res).to.have.property(\"message\", \"Vos données sont mises à jour !\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstname\": \"toto2\",\n  \"lastname\": \"grandtoto\",\n  \"pseudo\": \"toto\",\n  \"avatar\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update No auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"response, success, status and message exist and are ok\", function() {\r",
+											"    pm.expect(res).to.have.property(\"success\", false);\r",
+											"    pm.expect(res).to.have.property(\"status\");\r",
+											"    pm.expect(res).to.have.property(\"message\", \"Vous n'êtes pas authorisé à realiser cette action, Connectz-vous ! \");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstname\": \"toto\",\n  \"lastname\": \"grandtoto\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update user mail",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"response, success, status and message exist and are ok\", function() {\r",
+											"    pm.expect(res).to.have.property(\"success\", false);\r",
+											"    pm.expect(res).to.have.property(\"status\");\r",
+											"    pm.expect(res).to.have.property(\"message\", \"Vous n'êtes pas authorisé à réaliser cette opération\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"toto3@toto.fr\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update user password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"response, success, status and message exist and are ok\", function() {\r",
+											"    pm.expect(res).to.have.property(\"success\", false);\r",
+											"    pm.expect(res).to.have.property(\"status\");\r",
+											"    pm.expect(res).to.have.property(\"message\", \"Vous n'êtes pas authorisé à réaliser cette opération\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"password\": \"Pkf56596*\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update wrong credenscials",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstname\": \"toto\",\n  \"lastname\": \"grandtoto\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get user",
+					"item": [
+						{
+							"name": "get a user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"const schema = {",
+											"    \"success\": \"boolean\",",
+											"    \"status\": \"number\",",
+											"    \"message\": \"string\",",
+											"    \"token\": \"string\",",
+											"    \"users\" : \"array\"",
+											"}",
+											"pm.test(\"il y a un message d'alerte\", function (){",
+											"    const jres = pm.response.json();",
+											"    const msg = \"Liste des users trouvée !\"",
+											"",
+											"    pm.expect(jres.message).to.equal(msg);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "disable user",
+					"item": [
+						{
+							"name": "Disabled user echec",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {",
+											"    pm.response.to.have.status(401);",
+											"});",
+											"",
+											"pm.test(\"il y a un message d'alerte\", function (){",
+											"    const jres = pm.response.json();",
+											"    const msg = \"pas authorisé\"",
+											"",
+											"    pm.expect(jres.message).to.include(msg);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/disabled-user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"disabled-user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Disabled user succes",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"il y a un message d'alerte\", function (){",
+											"    const jres = pm.response.json();",
+											"    const msg = \"La désactivation du compte a été effectuée avec succès\"",
+											"",
+											"    pm.expect(jres.message).to.equal(msg);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/disabled-user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"disabled-user"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"item": [
+						{
+							"name": "login Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"token\", pm.response.json().token);\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"toto@toto.fr\",\r\n  \"password\": \"Toto*1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout succes",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"il y a un message d'alerte\", function (){",
+											"    const jres = pm.response.json();",
+											"    const msg = \"Au revoire toto \"",
+											"",
+											"    pm.expect(jres.message).to.equal(msg);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/logout",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout failled",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {",
+											"    pm.response.to.have.status(401);",
+											"});",
+											"",
+											"pm.test(\"il y a un message d'alerte\", function (){",
+											"    const jres = pm.response.json();",
+											"    const msg = \"Vous n'êtes pas authorisé à realiser cette action, Connectz-vous ! \"",
+											"",
+											"    pm.expect(jres.message).to.equal(msg);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/logout",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"token\", pm.response.json().token);\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"toto@toto.fr\",\r\n    \"password\": \"Toto*1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "create a category",
+					"item": [
+						{
+							"name": "création d'une categorie",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const schema = {\r",
+											"  \"success\" : \"boolean\",\r",
+											"  \"status\": \"number\",\r",
+											"  \"data\": \"object\" // Changed from \"array\" to \"object\"\r",
+											"};\r",
+											"\r",
+											"const schemaData =\r",
+											"{\r",
+											"  \"fieldCount\": \"number\",\r",
+											"  \"affectedRows\": \"number\",\r",
+											"  \"insertId\": \"number\",\r",
+											"  \"info\": \"string\",\r",
+											"  \"serverStatus\": \"number\",\r",
+											"  \"warningStatus\": \"number\",\r",
+											"  \"changedRows\": \"number\"\r",
+											"}\r",
+											"const res = pm.response.json();\r",
+											"\r",
+											"pm.environment.set(\"cat_id\", res.data.insertId);\r",
+											"\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"pm.test(\"Schema response respect the good format\", function() {\r",
+											"    pm.expect(res).to.be.an(\"object\");\r",
+											"    pm.expect(res.success).to.equal(true);\r",
+											"    pm.response.to.have.jsonSchema(schema);\r",
+											"    pm.expect(res.data).to.have.jsonSchema(schemaData);\r",
+											"})\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"name\": \"pot\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/categories",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "création d'une categorie nom existant",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 500\", function () {\r",
+											"    pm.response.to.have.status(500);\r",
+											"});\r",
+											"pm.test(\"the response have the good property and message\", function() {\r",
+											"    pm.expect(res).to.be.an(\"object\");\r",
+											"    pm.expect(res.success).to.equal(false);\r",
+											"    pm.expect(res).to.have.property(\"success\");\r",
+											"    pm.expect(res).to.have.property(\"status\");\r",
+											"    pm.expect(res).to.have.property(\"message\");\r",
+											"    pm.expect(res.message).to.include(\"Duplicate entry\");\r",
+											"})\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"name\": \"pot\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/categories",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "création d'une categorie nom trop court",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"pm.test(\"the response have the good property and message\", function() {\r",
+											"    pm.expect(res).to.be.an(\"object\");\r",
+											"    pm.expect(res.success).to.equal(false);\r",
+											"    pm.expect(res).to.have.property(\"success\");\r",
+											"    pm.expect(res).to.have.property(\"status\");\r",
+											"    pm.expect(res).to.have.property(\"message\");\r",
+											"    pm.expect(res.message).to.include(\"Le titre doit avoir au minimum 3 lettres, sans chiffres ni caractères spéciaux\");\r",
+											"})\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"name\": \"Sp\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/categories",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "création d'une categorie sans nouveau nom",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 500\", function () {\r",
+											"    pm.response.to.have.status(500);\r",
+											"});\r",
+											"pm.test(\"the response have the good property and message\", function() {\r",
+											"    pm.expect(res).to.be.an(\"object\");\r",
+											"    pm.expect(res.success).to.equal(false);\r",
+											"    pm.expect(res).to.have.property(\"success\");\r",
+											"    pm.expect(res).to.have.property(\"status\");\r",
+											"    pm.expect(res).to.have.property(\"message\");\r",
+											"    pm.expect(res.message).to.not.be.empty;\r",
+											"})\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/categories",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "création d'une categorie sans etre connecté",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"pm.test(\"the response have the good property and message\", function() {\r",
+											"    pm.expect(res).to.be.an(\"object\");\r",
+											"    pm.expect(res.success).to.equal(false);\r",
+											"    pm.expect(res).to.have.property(\"success\");\r",
+											"    pm.expect(res).to.have.property(\"status\");\r",
+											"    pm.expect(res).to.have.property(\"message\");\r",
+											"    pm.expect(res.message).to.include(\"Vous n'êtes pas authorisé à realiser cette action, Connectz-vous ! \");\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"name\": \"Sport\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/categories",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get all category",
+					"item": [
+						{
+							"name": "voir toutes les categories",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const schema = {\r",
+											"  \"success\" : \"boolean\",\r",
+											"  \"status\": \"number\",\r",
+											"  \"data\": \"object\"\r",
+											"};\r",
+											"\r",
+											"const schemaData ={\r",
+											"    \"id\": \"number\",\r",
+											"    \"name\": \"string\",\r",
+											"    \"created_at\": \"string\",\r",
+											"    \"updated_at\": \"string\"\r",
+											"}\r",
+											"const res = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Schema response respect the good format\", function() {\r",
+											"    pm.expect(res).to.be.an(\"object\");\r",
+											"    pm.expect(res.success).to.equal(true);\r",
+											"    pm.response.to.have.jsonSchema(schema);\r",
+											"    pm.expect(res.data).to.have.jsonSchema(schemaData)\r",
+											"})\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/categories",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get one category",
+					"item": [
+						{
+							"name": "voir une categorie",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const schema = {\r",
+											"  \"success\" : \"boolean\",\r",
+											"  \"status\": \"number\",\r",
+											"  \"data\": \"object\"\r",
+											"};\r",
+											"\r",
+											"const schemaData ={\r",
+											"    \"id\": \"number\",\r",
+											"    \"name\": \"string\",\r",
+											"    \"created_at\": \"string\",\r",
+											"    \"updated_at\": \"string\"\r",
+											"}\r",
+											"const res = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Schema response respect the good format\", function() {\r",
+											"    pm.expect(res).to.be.an(\"object\");\r",
+											"    pm.expect(res.success).to.equal(true);\r",
+											"    pm.response.to.have.jsonSchema(schema);\r",
+											"    pm.expect(res.data).to.have.jsonSchema(schemaData)\r",
+											"})\r",
+											"pm.test(\"cat_id equal res.data.id\", function () {\r",
+											"    pm.expect(pm.environment.get(\"cat_id\")).to.equal(res.data.id);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/categories/{{cat_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories",
+										"{{cat_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "voir une categorie inexistante",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"the response have the good property and message\", function() {\r",
+											"    pm.expect(res).to.be.an(\"object\");\r",
+											"    pm.expect(res.success).to.equal(false);\r",
+											"    pm.expect(res).to.have.property(\"success\");\r",
+											"    pm.expect(res).to.have.property(\"status\");\r",
+											"    pm.expect(res).to.have.property(\"message\");\r",
+											"    pm.expect(res.message).to.include(\"Category not found\");\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/categories/cat",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories",
+										"cat"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "update a category",
+					"item": [
+						{
+							"name": "modifier une categorie",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"the response have the good property and message\", function() {\r",
+											"    pm.expect(res).to.be.an(\"object\");\r",
+											"    pm.expect(res.success).to.equal(true);\r",
+											"    pm.expect(res).to.have.property(\"success\");\r",
+											"    pm.expect(res).to.have.property(\"status\");\r",
+											"    pm.expect(res).to.have.property(\"message\");\r",
+											"    pm.expect(res.message).to.include(\"Category updated successfully\");\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"name\":\"dessin\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/categories/{{cat_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories",
+										"{{cat_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "modifier une categorie avec un nom de moins de 3 caracteres",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"pm.test(\"the response have the good property and message\", function() {\r",
+											"    pm.expect(res).to.be.an(\"object\");\r",
+											"    pm.expect(res.success).to.equal(false);\r",
+											"    pm.expect(res).to.have.property(\"success\");\r",
+											"    pm.expect(res).to.have.property(\"status\");\r",
+											"    pm.expect(res).to.have.property(\"message\");\r",
+											"    pm.expect(res.message).to.include(\"Le titre doit avoir au minimum 3 lettres, sans chiffres ni caractères spéciaux\");\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"name\":\"S\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/categories/{{cat_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories",
+										"{{cat_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "modifier une categorie avec id inexistant",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"the response have the good property and message\", function() {\r",
+											"    pm.expect(res).to.be.an(\"object\");\r",
+											"    pm.expect(res.success).to.equal(false);\r",
+											"    pm.expect(res).to.have.property(\"success\");\r",
+											"    pm.expect(res).to.have.property(\"status\");\r",
+											"    pm.expect(res).to.have.property(\"message\");\r",
+											"    pm.expect(res.message).to.include(\"Category not found\");\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"name\":\"dessin\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/categories/cat",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories",
+										"cat"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modifier une categorie sans etre connecté",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.text();\r",
+											"\r",
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"pm.test(\"the response have the good property and message\", function() {\r",
+											"    pm.expect(res).to.include(\"SyntaxError\");\r",
+											"    pm.expect(res).to.include(\"JSON.parse\");\r",
+											"    pm.expect(res).to.include(\"Expected property name\");\r",
+											"    pm.expect(res).to.include(\"line 1 column 2\");\r",
+											"    // pm.expect(res).to.include(\"Unexpected token\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{dessin}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/categories/{{cat_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories",
+										"{{cat_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "connect with user not admin",
+			"item": [
+				{
+					"name": "login",
+					"item": [
+						{
+							"name": "login user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"\r",
+											"pm.environment.set(\"token2\", res.token);\r",
+											"\r",
+											"const schema = {\r",
+											"    \"success\": \"boolean\",\r",
+											"    \"status\": \"number\",\r",
+											"    \"message\": \"string\",\r",
+											"    \"token\": \"string\"\r",
+											"}\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"response schema, message, sucess and token is OK\", function () {\r",
+											"    pm.response.to.have.jsonSchema(schema);\r",
+											"    pm.expect(res).to.be.an(\"object\");\r",
+											"    pm.expect(res.success).to.equal(true);\r",
+											"    pm.expect(res.message).to.include(\"Bienvenu\");\r",
+											"    pm.expect(res.token).to.not.be.empty;\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"toto4@toto.fr\",\r\n  \"password\": \"Toto*1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "category",
+					"item": [
+						{
+							"name": "création d'une categorie en tant qu'utilisateur",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"pm.test(\"the response have the good property and message\", function() {\r",
+											"    pm.expect(res).to.be.an(\"object\");\r",
+											"    pm.expect(res.success).to.equal(false);\r",
+											"    pm.expect(res).to.have.property(\"success\");\r",
+											"    pm.expect(res).to.have.property(\"status\");\r",
+											"    pm.expect(res).to.have.property(\"message\");\r",
+											"    pm.expect(res.message).to.include(\"Vous n'êtes pas authorisé à réaliser cette opération !\");\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"name\": \"Sports\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/categories",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modifier une categorie avec un utilisateur",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.text();\r",
+											"\r",
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"pm.test(\"the response have the good property and message\", function() {\r",
+											"    pm.expect(res).to.include(\"SyntaxError\");\r",
+											"    pm.expect(res).to.include(\"Expected property name\");\r",
+											"    pm.expect(res).to.include(\"JSON.parse\");\r",
+											"    pm.expect(res).to.include(\"at position 1\");\r",
+											"    pm.expect(res).to.include(\"line 1 column 2\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{dessin}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/categories/{{cat_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories",
+										"{{cat_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modifier une categorie avec un utilisateur",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"pm.test(\"the response have the good property and message\", function() {\r",
+											"    pm.expect(res).to.be.an(\"object\");\r",
+											"    pm.expect(res.success).to.equal(false);\r",
+											"    pm.expect(res).to.have.property(\"success\");\r",
+											"    pm.expect(res).to.have.property(\"status\");\r",
+											"    pm.expect(res).to.have.property(\"message\");\r",
+											"    pm.expect(res.message).to.include(\"Vous n'êtes pas authorisé à réaliser cette opération !\");\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/categories/{{cat_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories",
+										"{{cat_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "article",
+					"item": [
+						{
+							"name": "Create article",
+							"item": [
+								{
+									"name": "TEST 01 : CREATE ARTICLE",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json()",
+													"const status = pm.response.code",
+													"pm.environment.set(\"articleId\", res.data.insertId);",
+													"",
+													"pm.test(\"Status code is 201\", function () {",
+													"    pm.response.to.have.status(201);",
+													"       pm.expect(res.success).to.equal(true)",
+													"        pm.expect(res).to.have.property('data');",
+													"        console.log(res.data)",
+													"        pm.expect(res.data).to.have.property('fieldCount').to.be.a(\"number\");",
+													"        pm.expect(res.data).to.have.property('affectedRows').to.be.a(\"number\");",
+													"        pm.expect(res.data).to.have.property('insertId').to.be.a(\"number\");",
+													"        pm.expect(res.data).to.have.property('serverStatus').to.be.a(\"number\");",
+													"        pm.expect(res.data).to.have.property('info').to.be.a(\"string\");",
+													"        pm.expect(res.data).to.have.property('warningStatus').to.be.a(\"number\");",
+													"        pm.expect(res.data).to.have.property('changedRows').to.be.a(\"number\");",
+													"});",
+													"",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\"title\": \"Article Test\",\n\"description\": \"Ceci est un article de test pour le projet final\",\n\"category_id\": {{cat_id}}\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/articles",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "TEST 02 : CREATE ARTICLE WITHOUT TITLE",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json()",
+													"const status = pm.response.code",
+													"",
+													" if (status === 500) {",
+													"pm.test(\"Status code is 500\", function () {",
+													"    pm.response.to.have.status(500);",
+													"    pm.expect(res.success).to.equal(false)",
+													"    pm.expect(res.message).to.equal(\"Column 'title' cannot be null\");",
+													"});",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\"description\": \"Ceci est un article de test pour le projet final\",\n\"category_id\": {{cat_id}}\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/articles",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "TEST 03 : CREATE ARTICLE WITHOUT TOKEN",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json()",
+													"const status = pm.response.code",
+													"",
+													"if (status === 201) {",
+													"pm.test(\"Status code is 201\", function () {",
+													"    pm.response.to.have.status(201);",
+													"       pm.expect(res.success).to.equal(true)",
+													"        pm.expect(res).to.have.property('data');",
+													"        console.log(res.data)",
+													"        pm.expect(res.data).to.have.property('fieldCount').to.be.a(\"number\");",
+													"        pm.expect(res.data).to.have.property('affectedRows').to.be.a(\"number\");",
+													"        pm.expect(res.data).to.have.property('insertId').to.be.a(\"number\");",
+													"        pm.expect(res.data).to.have.property('serverStatus').to.be.a(\"number\");",
+													"        pm.expect(res.data).to.have.property('info').to.be.a(\"string\");",
+													"        pm.expect(res.data).to.have.property('warningStatus').to.be.a(\"number\");",
+													"        pm.expect(res.data).to.have.property('changedRows').to.be.a(\"number\");",
+													"});",
+													"",
+													"} else if (status === 500) {",
+													"pm.test(\"Status code is 500\", function () {",
+													"    pm.response.to.have.status(500);",
+													"           pm.expect(res.success).to.equal(false)",
+													"",
+													"    pm.expect(res.message).to.equal(\"Column 'title' cannot be null\");",
+													"});",
+													"}",
+													" else if (status === 401) {",
+													"pm.test(\"Status code is 401\", function () {",
+													"    pm.response.to.have.status(401);",
+													"           pm.expect(res.success).to.equal(false)",
+													"",
+													"    pm.expect(res.message).to.equal(\"Vous n'êtes pas authorisé à realiser cette action, Connectz-vous ! \");",
+													"});",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\"description\": \"Ceci est un article de test pour le projet final\",\n\"category_id\": {{cat_id}}\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/articles",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "TEST 04 : CREATE ARTICLE WITH TO LONG DESCRIPTION",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json()",
+													"const status = pm.response.code",
+													"",
+													"pm.test(\"Status code is 500\", function () {",
+													"    pm.response.to.have.status(500);",
+													"       pm.expect(res.success).to.equal(false)",
+													"        pm.expect(res).to.have.property('message').to.be.equal(\"Data too long for column 'description' at row 1\");",
+													"});",
+													"",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\"title\": \"Article Test\",\n\"description\": \"Ceci est un article de test pour le projet final et je m'occupe des tests sur les articles.\",\n\"category_id\": {{cat_id}}\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/articles",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Get article",
+							"item": [
+								{
+									"name": "TEST 05 - GET ALL ARTICLES",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json()",
+													"const status = pm.response.code",
+													"",
+													"if (status === 200) {",
+													"pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"        pm.expect(res.success).to.equal(true)",
+													"        pm.expect(res).to.have.property('data');",
+													"        console.log(res.data[0])",
+													"        pm.expect(res.data[0]).to.have.property('id').to.be.a(\"number\");",
+													"        pm.expect(res.data[0]).to.have.property('title').to.be.a(\"string\");",
+													"        pm.expect(res.data[0]).to.have.property('user_firstname').to.be.a(\"string\");",
+													"        pm.expect(res.data[0]).to.have.property('user_lastname').to.be.a(\"string\");",
+													"        pm.expect(res.data[0]).to.have.property('user_email').to.be.a(\"string\");",
+													"        pm.expect(res.data[0]).to.have.property('category_name').to.be.a(\"string\");",
+													"});",
+													"",
+													"} "
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/articles",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "TEST 06 - GET ARTICLE BY ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json()",
+													"const status = pm.response.code",
+													"",
+													"if (status === 200) {",
+													"pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"        pm.expect(res.success).to.equal(true)",
+													"        pm.expect(res).to.have.property('data');",
+													"        pm.expect(res.data).to.have.property('id').to.be.a(\"number\");",
+													"        pm.expect(res.data).to.have.property('description').to.be.a(\"string\");",
+													"        pm.expect(res.data).to.have.property('title').to.be.a(\"string\");",
+													"        pm.expect(res.data).to.have.property('category_id').to.be.a(\"number\");",
+													"        pm.expect(res.data).to.have.property('user_id').to.be.a(\"number\");",
+													"        pm.expect(res.data).to.have.property('created_at').to.be.a(\"string\");",
+													"        pm.expect(res.data).to.have.property('updated_at').to.be.a(\"string\");",
+													"        pm.expect(res.data).to.have.property('user_firstname').to.be.a(\"string\");",
+													"        pm.expect(res.data).to.have.property('user_lastname').to.be.a(\"string\");",
+													"        pm.expect(res.data).to.have.property('user_email').to.be.a(\"string\");",
+													"        pm.expect(res.data).to.have.property('category_name').to.be.a(\"string\");",
+													"});",
+													"",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/articles/{{articleId}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												"{{articleId}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "TEST 07 - GET ARTICLE BY ID WITH WRONG ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json()",
+													"const status = pm.response.code",
+													"",
+													"if (status === 404) {",
+													"pm.test(\"Status code is 404\", function () {",
+													"        pm.response.to.have.status(404);",
+													"        pm.expect(res.success).to.equal(false)",
+													"        pm.expect(res).to.have.property('message').to.be.equal(\"Article not found\");",
+													"       ",
+													"});",
+													"",
+													"} else if (status === 500) {",
+													"pm.test(\"Status code is 500\", function () {",
+													"    pm.response.to.have.status(500);",
+													"    pm.expect(res.success).to.equal(false)",
+													"});",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/articles/12005",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												"12005"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "TEST 08 - GET ARTICLES BY USER",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json()",
+													"const status = pm.response.code",
+													"",
+													"if (status === 200) {",
+													"pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"        pm.expect(res.success).to.equal(true)",
+													"        pm.expect(res).to.have.property('data');",
+													"        pm.expect(res.data[0]).to.have.property('user_id').to.be.a(\"number\");",
+													"        pm.expect(res.data[0]).to.have.property('firstname').to.be.a(\"string\");",
+													"        pm.expect(res.data[0]).to.have.property('lastname').to.be.a(\"string\");",
+													"        pm.expect(res.data[0].articles[0]).to.have.property('title').to.be.a(\"string\");",
+													"        pm.expect(res.data[0].articles[0]).to.have.property('article_id').to.be.a(\"number\");",
+													"        pm.expect(res.data[0].articles[0]).to.have.property('created_at').to.be.a(\"string\");",
+													"        pm.expect(res.data[0].articles[0]).to.have.property('updated_at').to.be.a(\"string\");",
+													"        pm.expect(res.data[0].articles[0]).to.have.property('description').to.be.a(\"string\");",
+													"        pm.expect(res.data[0].articles[0]).to.have.property('category_name').to.be.a(\"string\");",
+													"});",
+													"",
+													"} "
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/articles/user",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "TEST 09 - GET ARTICLES BY USER  WITHOUT TOKEN",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json()",
+													"const status = pm.response.code",
+													"",
+													"if (status === 401) {",
+													"pm.test(\"Status code is 401\", function () {",
+													"        pm.response.to.have.status(401);",
+													"        pm.expect(res.success).to.equal(false)",
+													"        pm.expect(res).to.have.property('message').to.be.equal(\"Vous n'êtes pas authorisé à realiser cette action, Connectz-vous ! \");",
+													"});",
+													"",
+													"} else if (status === 500) {",
+													"pm.test(\"Status code is 500\", function () {",
+													"    pm.response.to.have.status(500);",
+													"    pm.expect(res.success).to.equal(false)",
+													"});",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/articles/user",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "TEST 10 - GET ARTICLE COUNT BY USER",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json()",
+													"const status = pm.response.code",
+													"",
+													"if (status === 200) {",
+													"pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"        pm.expect(res.success).to.equal(true)",
+													"        pm.expect(res).to.have.property('data').to.be.a(\"number\");",
+													"});",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/articles/users/count",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												"users",
+												"count"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "TEST 11 - GET ARTICLE COUNT BY USER WITHOUT TOKEN",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json()",
+													"const status = pm.response.code",
+													"",
+													"if (status === 401) {",
+													"pm.test(\"Status code is 401\", function () {",
+													"        pm.response.to.have.status(401);",
+													"        pm.expect(res.success).to.equal(false)",
+													"        pm.expect(res).to.have.property('message').to.be.equal(\"Vous n'êtes pas authorisé à realiser cette action, Connectz-vous ! \");",
+													"});",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/articles/users/count",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												"users",
+												"count"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Update article",
+							"item": [
+								{
+									"name": "TEST 12 - UPDATE ARTICLE",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json()",
+													"const status = pm.response.code",
+													"",
+													"if (status === 200) {",
+													"pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"        pm.expect(res.success).to.equal(true)",
+													"        pm.expect(res).to.have.property('message').to.be.equal(\"Article updated successfully\");",
+													"       });",
+													"",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\"title\": \"Article Test\",\n\"description\": \"Ceci est un article de test 45\",\n\"category_id\": 2\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/articles/{{articleId}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												"{{articleId}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "TEST 13 - UPDATE ARTICLE WITH WRONG ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json()",
+													"const status = pm.response.code",
+													"",
+													"if (status === 404) {",
+													"pm.test(\"Status code is 404\", function () {",
+													"        pm.response.to.have.status(404);",
+													"        pm.expect(res.success).to.equal(false)",
+													"        pm.expect(res).to.have.property('message').to.be.equal(\"Article not found\");",
+													"       });",
+													"",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\"title\": \"Article Test\",\n\"description\": \"Ceci est un article de test 45\",\n\"category_id\": 2\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/articles/123585",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												"123585"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "TEST 14 - UPDATE ARTICLE WITH SO LONG DESCRIPTION",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"",
+													"const res = pm.response.json()",
+													"const status = pm.response.code",
+													"",
+													"pm.test(\"Status code is 500\", function () {",
+													"    pm.response.to.have.status(500);",
+													"       pm.expect(res.success).to.equal(false)",
+													"        pm.expect(res).to.have.property('message').to.be.equal(\"Data too long for column 'description' at row 1\");",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\"title\": \"Article Test\",\n\"description\": \"Ceci est un article de test 45. Cet article parle du test à la Wild Code School de Lyon\",\n\"category_id\": 2\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/articles/{{articleId}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												"{{articleId}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "comment",
+					"item": [
+						{
+							"name": "create comment",
+							"item": [
+								{
+									"name": "create-comment",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json()\r",
+													"const status = pm.response.code\r",
+													"pm.environment.set(\"commentID\", res.data.insertId);\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"test property res\", function () {\r",
+													"        pm.expect(res.success).to.equal(true)\r",
+													"        pm.expect(res).to.have.property('status');\r",
+													"        pm.expect(res).to.have.property('data');\r",
+													"        pm.expect(res).to.have.property('success');\r",
+													"        pm.expect(res.data).to.have.property('fieldCount').to.be.a(\"number\");\r",
+													"        pm.expect(res.data).to.have.property('affectedRows').to.be.a(\"number\");\r",
+													"        pm.expect(res.data).to.have.property('insertId').to.be.a(\"number\");\r",
+													"        pm.expect(res.data).to.have.property('serverStatus').to.be.a(\"number\");\r",
+													"        pm.expect(res.data).to.have.property('warningStatus').to.be.a(\"number\");\r",
+													"        pm.expect(res.data).to.have.property('changedRows').to.be.a(\"number\");\r",
+													"        pm.expect(res.data).to.have.property('info').to.be.a('string');;\r",
+													"        \r",
+													"});\r",
+													"\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"description\": \"1st comment\",\r\n  \"article_id\": {{articleId}}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/comments",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"comments"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "create-comment not connect",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Schema reponse, success and message is ok\", function () {\r",
+													"     pm.expect(res).to.be.an('object');\r",
+													"     pm.expect(res).to.have.property('success', false);\r",
+													"     pm.expect(res).to.have.property('status');\r",
+													"     pm.expect(res).to.have.property('message', \"Vous n'êtes pas authorisé à realiser cette action, Connectz-vous ! \");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"description\": \"Contenu du commentaire\",\r\n  \"article_id\": \"ID de l'article associé\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/comments",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"comments"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "create-comment no descritpion",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code is 500\", function () {\r",
+													"    pm.response.to.have.status(500);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Schema reponse, success and message is ok\", function () {\r",
+													"     pm.expect(res).to.be.an('object');\r",
+													"     pm.expect(res).to.have.property('success', false);\r",
+													"     pm.expect(res).to.have.property('status');\r",
+													"     pm.expect(res).to.have.property('message', \"Column 'description' cannot be null\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"article_id\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/comments",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"comments"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "get all comment",
+							"item": [
+								{
+									"name": "get-the-list-of-comments",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const schema = {\r",
+													"  \"success\" : \"boolean\",\r",
+													"  \"status\": \"number\",\r",
+													"  \"data\": \"object\"\r",
+													"};\r",
+													"\r",
+													"const schemaData = {\r",
+													"  \"article_id\": \"number\",\r",
+													"  \"article_title\": \"string\",\r",
+													"  \"article_description\": \"string\",\r",
+													"  \"userId\": \"number\",\r",
+													"  \"comments\": \"object\",\r",
+													"}\r",
+													"\r",
+													"const schemaComments = {\r",
+													"    \"user_id\": \"number\",\r",
+													"    \"user_info\": \"string\",\r",
+													"    \"comment_id\": \"number\",\r",
+													"    \"user_email\": \"string\",\r",
+													"    \"user_avatar\": \"string\",\r",
+													"    \"user_pseudo\": \"string\",\r",
+													"    \"user_status\": \"number\",\r",
+													"    \"comment_created_at\": \"string\",\r",
+													"    \"comment_updated_at\": \"string\",\r",
+													"    \"comment_description\": \"string\"\r",
+													"}\r",
+													"const res = pm.response.json();\r",
+													"\r",
+													"pm.environment.set(\"cat_id\", res.data.insertId);\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"pm.test(\"Schema response respect the good format\", function() {\r",
+													"    pm.expect(res).to.be.an(\"object\");\r",
+													"    pm.expect(res.success).to.equal(true);\r",
+													"    pm.response.to.have.jsonSchema(schema);\r",
+													"    pm.expect(res.data).to.have.jsonSchema(schemaData);\r",
+													"    pm.expect(res.data.comments).to.have.jsonSchema(schemaComments);\r",
+													"})"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/comments",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"comments"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "get comment by Id",
+							"item": [
+								{
+									"name": "get-comment-by-ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json()\r",
+													"const status = pm.response.code\r",
+													"const schemaData = {\r",
+													"    \"id\": \"number\",\r",
+													"    \"description\": \"string\",\r",
+													"    \"user_id\": \"number\",\r",
+													"    \"article_id\": \"number\",\r",
+													"    \"created_at\": \"string\",\r",
+													"    \"updated_at\": \"string\"\r",
+													"}\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"        pm.expect(res.success).to.equal(true)\r",
+													"        pm.expect(res).to.have.property('data');\r",
+													"        pm.expect(res.data).to.have.jsonSchema(schemaData);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/comments/{{commentID}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"comments",
+												"{{commentID}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get-comment-without-ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json()\r",
+													"const status = pm.response.code\r",
+													"\r",
+													"if (status === 404) {\r",
+													"pm.test(\"Status code is 404\", function () {\r",
+													"        pm.response.to.have.status(404);\r",
+													"        pm.expect(res.success).to.equal(false)\r",
+													"        pm.expect(res).to.have.property('message').to.be.equal(\"Comment not found\");\r",
+													"       \r",
+													"});\r",
+													"\r",
+													"} else if (status === 500) {\r",
+													"pm.test(\"Status code is 500\", function () {\r",
+													"    pm.response.to.have.status(500);\r",
+													"    pm.expect(res.success).to.equal(false)\r",
+													"});\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/comments",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"comments"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get-comment-with-wrong-ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json()\r",
+													"const status = pm.response.code\r",
+													"\r",
+													"if (status === 404) {\r",
+													"pm.test(\"Status code is 404\", function () {\r",
+													"        pm.response.to.have.status(404);\r",
+													"        pm.expect(res.success).to.equal(false)\r",
+													"        pm.expect(res).to.have.property('message').to.be.equal(\"Comment not found\");\r",
+													"       \r",
+													"});\r",
+													"\r",
+													"} else if (status === 500) {\r",
+													"pm.test(\"Status code is 500\", function () {\r",
+													"    pm.response.to.have.status(500);\r",
+													"    pm.expect(res.success).to.equal(false)\r",
+													"});\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/comments/22",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"comments",
+												"22"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "update comment",
+							"item": [
+								{
+									"name": "update-comment-by-ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Schema reponse, success and message is ok\", function () {\r",
+													"     pm.expect(res).to.be.an('object');\r",
+													"     pm.expect(res).to.have.property('success', true);\r",
+													"     pm.expect(res).to.have.property('status');\r",
+													"     pm.expect(res).to.have.property('message', \"Comment updated successfully\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"description\": \"1st comment updated successfully\",\r\n    \"article_id\": {{articleId}}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/comments/{{commentID}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"comments",
+												"{{commentID}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update-comment-by-ID wrong ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code is 404\", function () {\r",
+													"    pm.response.to.have.status(404);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Schema reponse, success and message is ok\", function () {\r",
+													"     pm.expect(res).to.be.an('object');\r",
+													"     pm.expect(res).to.have.property('success', false);\r",
+													"     pm.expect(res).to.have.property('status');\r",
+													"     pm.expect(res).to.have.property('message', \"Comment not found\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"description\": \"1st comment updated successfully\",\r\n    \"article_id\": {{articleId}}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/comments/12000",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"comments",
+												"12000"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update-comment-by-ID no description",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code is 500\", function () {\r",
+													"    pm.response.to.have.status(500);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Schema reponse, success and message is ok\", function () {\r",
+													"     pm.expect(res).to.be.an('object');\r",
+													"     pm.expect(res).to.have.property('success', false);\r",
+													"     pm.expect(res).to.have.property('status');\r",
+													"     pm.expect(res).to.have.property('message', \"Column 'description' cannot be null\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"article_id\": {{articleId}}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/comments/{{commentID}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"comments",
+												"{{commentID}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update-comment-by-ID notConnect",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"description\": \"1st comment updated successfully\",\r\n    \"article_id\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/comments/{{commentID}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"comments",
+												"{{commentID}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "delete comment",
+							"item": [
+								{
+									"name": "delete-comment-by-ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const res = pm.response.json();\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"pm.test(\"the response have the good property and message\", function() {\r",
+													"    pm.expect(res).to.be.an(\"object\");\r",
+													"    pm.expect(res.success).to.equal(true);\r",
+													"    pm.expect(res).to.have.property(\"success\");\r",
+													"    pm.expect(res).to.have.property(\"status\");\r",
+													"    pm.expect(res).to.have.property(\"message\");\r",
+													"    pm.expect(res.message).to.include(\"Comment deleted successfully\");\r",
+													"})"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/comments/{{commentID}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"comments",
+												"{{commentID}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete-comment-without-ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 404\", function () {\r",
+													"    pm.response.to.have.status(404);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/comments/",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"comments",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token2}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "delete",
+			"item": [
+				{
+					"name": "login",
+					"item": [
+						{
+							"name": "login Copy 2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"token\", pm.response.json().token);\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"toto@toto.fr\",\r\n  \"password\": \"Toto*1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete article",
+					"item": [
+						{
+							"name": "TEST 15 - DELETE ARTICLE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json()",
+											"const status = pm.response.code",
+											"",
+											"if (status === 200) {",
+											"pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"        pm.expect(res.success).to.equal(true)",
+											"        pm.expect(res).to.have.property('message').to.be.equal(\"Article deleted successfully\");",
+											"       });",
+											"",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/articles/{{articleId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"articles",
+										"{{articleId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "TEST 16 - DELETE ARTICLE WITH WRONG ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json()",
+											"const status = pm.response.code",
+											"",
+											"if (status === 404) {",
+											"pm.test(\"Status code is 404\", function () {",
+											"        pm.response.to.have.status(404);",
+											"        pm.expect(res.success).to.equal(false)",
+											"        pm.expect(res).to.have.property('message').to.be.equal(\"Article not found\");",
+											"       });",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/articles/5524",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"articles",
+										"5524"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "delete a category",
+					"item": [
+						{
+							"name": "supprimer  une categorie avec id inexistant",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"pm.test(\"the response have the good property and message\", function() {\r",
+											"    pm.expect(res).to.be.an(\"object\");\r",
+											"    pm.expect(res.success).to.equal(false);\r",
+											"    pm.expect(res).to.have.property(\"success\");\r",
+											"    pm.expect(res).to.have.property(\"status\");\r",
+											"    pm.expect(res).to.have.property(\"message\");\r",
+											"    pm.expect(res.message).to.include(\"Category not found\");\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/categories/cat",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories",
+										"cat"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "supprimer une categorie sans etre connecté",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const res = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"pm.test(\"the response have the good property and message\", function() {\r",
+											"    pm.expect(res).to.be.an(\"object\");\r",
+											"    pm.expect(res.success).to.equal(false);\r",
+											"    pm.expect(res).to.have.property(\"success\");\r",
+											"    pm.expect(res).to.have.property(\"status\");\r",
+											"    pm.expect(res).to.have.property(\"message\");\r",
+											"    pm.expect(res.message).to.include(\"Vous n'êtes pas authorisé à realiser cette action, Connectz-vous ! \");\r",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/categories/{{cat_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories",
+										"{{cat_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5555/api",
+			"type": "string"
+		},
+		{
+			"key": "ID",
+			"value": "1"
+		}
+	]
+}

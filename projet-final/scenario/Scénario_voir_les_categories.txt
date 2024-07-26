@@ -1,0 +1,62 @@
+Scénario de Test : voir toutes les catégories
+ID du Test : TSTGETALLCAT-001
+
+Titre du Test : voir toutes les categories - API
+
+Pré-conditions :
+
+être connecté
+
+Étapes :
+
+Inscrire dans l'outil de test API l'adresse du serveur API à tester : http://localhost:5555/api/categories.
+Choisir la requête GET.
+
+Résultats attendus :
+
+Code status 200.
+La réponse est un objet.
+Le schéma de la réponse est 
+Success est à true
+L'objet data à la propriété "id"
+L'objet data à la propriété "name"
+L'objet data à la propriété "created_at"
+L'objet data à la propriété "updated_at"
+La propriété "id est un nombre
+La propriété "name" est une chaine de caractères
+La propriété "created_at" est une chaine de caractères
+La propriété "updated_at" est une chaine de caractères
+
+Les catégories sont listés dans le data de la réponse
+
+
+ID du Test : TSTGETALLCAT-002
+
+Titre du Test : voir toutes les categories - front
+
+Pré-conditions :
+
+être connecté en tant qu'administrateur et sur le Dashboard administrateur
+
+Étapes :
+
+
+Résultats attendus :
+
+
+ID du Test : TSTGETALLCAT-003
+
+Titre du Test : voir toutes les categories - front
+
+Pré-conditions :
+
+être connecté en tant qu'utilisateur et sur la page Dashboard utilisateur
+
+Étapes :
+
+
+Résultats attendus :
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,135 @@
+Scénario de Test : modifier une catégorie
+ID du Test : TSTPUTCAT-001
+
+Titre du Test : modifier une categorie - API
+
+Pré-conditions :
+
+être connecté en tant qu'administrateur
+
+Étapes :
+
+Inscrire dans l'outil de test API l'adresse du serveur API à tester : http://localhost:5555/api/categories/{{id}}
+Choisir la requête PATCH.
+
+Résultats attendus :
+
+Code status 200.
+La réponse est un objet.
+La propriété message existe dans la réponse
+la réponse à une propriété "success"
+la réponse à une propriété "status"
+le message de la réponse doit contenir : "Category updated successfully"
+le success est à true
+
+Post-conditions :
+La catégorie est modifié dans la base de données
+
+Données utilisées:
+paramètre du chemin {{id}} : id enregistré dans l'environnement
+{
+   "name": "dessin"
+}
+
+
+ID du Test : TSTPUTCAT-002
+
+Titre du Test : modifier une categorie - front
+
+Pré-conditions :
+
+être connecté en tant qu'administrateur et sur le Dashboard administrateur
+
+Étapes :
+
+
+Résultats attendus :
+
+
+Post-conditions:
+
+Données utilisées:
+"name": "dessin"
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ID du Test : TSTPUTCAT-003
+
+Titre du Test : modifier une categorie - API
+
+Pré-conditions :
+
+être connecté en tant qu'administrateur
+
+Étapes :
+
+Inscrire dans l'outil de test API l'adresse du serveur API à tester : http://localhost:5555/api/categories/cat
+Choisir la requête PATCH.
+
+Résultats attendus :
+
+Code status 404.
+La réponse est un objet.
+La propriété message existe dans la réponse
+la réponse à une propriété "success"
+la réponse à une propriété "status"
+le message de la réponse doit contenir : "Category not found"
+le success est à false
+
+Post-conditions :
+La catégorie n'est pas modifié dans la base de données
+
+Données utilisées:
+un id n'existant pas ou composé de lettre et/ou sans chiffre
+
+
+ID du Test : TSTPUTCAT-004
+
+Titre du Test : modifier une categorie - front
+
+Pré-conditions :
+
+être connecté en tant qu'administrateur et sur le Dashboard administrateur
+
+Étapes :
+
+
+Résultats attendus :
+
+
+Post-conditions:
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ID du Test : TSTPUTCAT-005
+
+Titre du Test : modifier une categorie - API
+
+Pré-conditions :
+
+être connecté en tant qu'utilisateur
+
+Étapes :
+
+Inscrire dans l'outil de test API l'adresse du serveur API à tester : http://localhost:5555/api/categories/{{id}}
+Choisir la requête PATCH.
+
+Résultats attendus :
+
+Code status 401.
+La réponse est un objet.
+La propriété message existe dans la réponse
+la réponse à une propriété "success"
+la réponse à une propriété "status"
+le message de la réponse ne doit pas être vide
+le success est à false
+
+Post-conditions :
+La catégorie n'est pas modifié dans la base de données
+
+Données utilisées:
+paramètre du chemin {{id}} : id enregistré dans l'environnement
+{
+   "name": "dessin"
+}

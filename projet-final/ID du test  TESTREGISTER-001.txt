@@ -1,0 +1,414 @@
+ID du test : TESTREGISTER-001
+Titre du Test : Enregistrement d'un utilisateur - API
+
+Pré-conditions :
+
+L'utilisateur est connecté au site et se trouve sur la page home
+
+Étapes :
+Inscrire dans l'outil de test API l'adresse du serveur API à tester : http://localhost:5555/api/users.
+Choisir la requête POST.
+Dans le Body choisir le format "raw" "json" et inscrire les données fournies.
+
+Résultats attendus :
+
+Code status 201.
+La réponse est un objet.
+La propriété message existe dans la réponse
+la réponse à une propriété "success"
+la réponse à une propriété "status"
+le message de la réponse doit contenir : "Félicitaion ! votre compte à été bien créer"
+le success est à true
+
+Post-conditions :
+Le compte créé doit être enregistré dans la base de données
+
+Données utilisées :
+{
+  "firstname": "toto",
+  "lastname": "grandtoto",
+  "email": "toto@toto.fr",
+  "password": "Toto*1234",
+  "pseudo": "toto",
+  "avatar": "https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE"
+}
+
+ID du Test : TSTREGISTER-002
+Titre du Test : Enregistrement d'un utilisateur - front
+
+Pré-conditions :
+
+L'utilisateur est connecté au site et se trouve sur la page home
+
+Étapes :
+
+
+Données utilisées :
+  "firstname": "toto",
+  "lastname": "grandtoto",
+  "email": "toto@toto.fr",
+  "password": "Toto*1234",
+  "pseudo": "toto",
+  "avatar": "https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE"
+-------------------------------------------------------------------------------------------------------------------------------------
+ID du test : TESTREGISTER-003
+Titre du Test : Enregistrement d'un utilisateur sans avatar - API
+
+Pré-conditions :
+
+L'utilisateur est connecté au site et se trouve sur la page home
+
+Étapes :
+Inscrire dans l'outil de test API l'adresse du serveur API à tester : http://localhost:5555/api/users.
+Choisir la requête POST.
+Dans le Body choisir le format "raw" "json" et inscrire les données fournies.
+
+Résultats attendus :
+
+Code status 201.
+La réponse est un objet.
+La propriété message existe dans la réponse
+la réponse à une propriété "success"
+la réponse à une propriété "status"
+le message de la réponse doit contenir : "Félicitaion ! votre compte à été bien créer"
+le success est à true
+
+Post-conditions :
+Le compte créé doit être enregistré dans la base de données
+
+Données utilisées :
+{
+  "firstname": "toto2",
+  "lastname": "grandtoto",
+  "email": "toto2@toto.fr",
+  "password": "Toto*1234",
+  "pseudo": "toto",
+}
+
+ID du Test : TSTREGISTER-004
+Titre du Test : Enregistrement d'un utilisateur sans avatar - front
+
+Pré-conditions :
+
+L'utilisateur est connecté au site et se trouve sur la page home
+
+Étapes :
+
+
+Données utilisées :
+  "firstname": "toto2",
+  "lastname": "grandtoto",
+  "email": "toto2@toto.fr",
+  "password": "Toto*1234",
+  "pseudo": "toto"
+
+-------------------------------------------------------------------------------------------------------------------------------------
+ID du test : TESTREGISTER-005
+Titre du Test : Enregistrement d'un utilisateur sans lastname - API
+
+Pré-conditions :
+
+L'utilisateur est connecté au site et se trouve sur la page home
+
+Étapes :
+Inscrire dans l'outil de test API l'adresse du serveur API à tester : http://localhost:5555/api/users.
+Choisir la requête POST.
+Dans le Body choisir le format "raw" "json" et inscrire les données fournies.
+
+Résultats attendus :
+
+Code status 500.
+La réponse est un objet.
+La propriété message existe dans la réponse
+la réponse à une propriété "success"
+la réponse à une propriété "status"
+le message de la réponse ne doit pas être vide
+le success est à false
+
+Post-conditions :
+Le compte ne doit pas être enregistré dans la base de données
+
+Données utilisées :
+{
+  "firstname": "toto",
+  "email": "toto3@toto.fr",
+  "password": "Toto*1234",
+  "pseudo": "toto",
+  "avatar": "https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE"
+}
+
+ID du Test : TSTREGISTER-006
+Titre du Test : Enregistrement d'un utilisateur sans lastname - front
+
+Pré-conditions :
+
+L'utilisateur est connecté au site et se trouve sur la page home
+
+Étapes :
+
+
+Données utilisées :
+  "firstname": "toto",
+  "email": "toto3@toto.fr",
+  "password": "Toto*1234",
+  "pseudo": "toto",
+  "avatar": "https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE"
+-------------------------------------------------------------------------------------------------------------------------------------
+ID du test : TESTREGISTER-007
+Titre du Test : Enregistrement d'un utilisateur sans firstname - API
+
+Pré-conditions :
+
+L'utilisateur est connecté au site et se trouve sur la page home
+
+Étapes :
+Inscrire dans l'outil de test API l'adresse du serveur API à tester : http://localhost:5555/api/users.
+Choisir la requête POST.
+Dans le Body choisir le format "raw" "json" et inscrire les données fournies.
+
+Résultats attendus :
+
+Code status 500.
+La réponse est un objet.
+La propriété message existe dans la réponse
+la réponse à une propriété "success"
+la réponse à une propriété "status"
+le message de la réponse ne doit pas être vide
+le success est à false
+
+Post-conditions :
+Le compte ne doit pas être enregistré dans la base de données
+
+Données utilisées :
+{
+  "lastname": "grandtoto",
+  "email": "toto3@toto.fr",
+  "password": "Toto*1234",
+  "pseudo": "toto",
+  "avatar": "https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE"
+}
+
+ID du Test : TSTREGISTER-008
+Titre du Test : Enregistrement d'un utilisateur sans firstname - front
+
+Pré-conditions :
+
+L'utilisateur est connecté au site et se trouve sur la page home
+
+Étapes :
+
+
+Données utilisées :
+  "lastname": "grandtoto",
+  "email": "toto3@toto.fr",
+  "password": "Toto*1234",
+  "pseudo": "toto",
+  "avatar": "https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE"
+-------------------------------------------------------------------------------------------------------------------------------------
+ID du test : TESTREGISTER-009
+Titre du Test : Enregistrement d'un utilisateur sans pseudo - API
+
+Pré-conditions :
+
+L'utilisateur est connecté au site et se trouve sur la page home
+
+Étapes :
+Inscrire dans l'outil de test API l'adresse du serveur API à tester : http://localhost:5555/api/users.
+Choisir la requête POST.
+Dans le Body choisir le format "raw" "json" et inscrire les données fournies.
+
+Résultats attendus :
+
+Code status 500.
+La réponse est un objet.
+La propriété message existe dans la réponse
+la réponse à une propriété "success"
+la réponse à une propriété "status"
+le message de la réponse ne doit pas être vide
+le success est à false
+
+Post-conditions :
+Le compte ne doit pas être enregistré dans la base de données
+
+Données utilisées :
+{
+  "firstname": "toto",
+  "lastname": "grandtoto",
+  "email": "toto3@toto.fr",
+  "password": "Toto*1234",
+  "avatar": "https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE"
+}
+
+ID du Test : TSTREGISTER-010
+Titre du Test : Enregistrement d'un utilisateur sans pseudo - front
+
+Pré-conditions :
+
+L'utilisateur est connecté au site et se trouve sur la page home
+
+Étapes :
+
+
+Données utilisées :
+  "firstname": "toto",
+  "lastname": "grandtoto",
+  "email": "toto3@toto.fr",
+  "password": "Toto*1234",
+  "avatar": "https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE"
+-------------------------------------------------------------------------------------------------------------------------------------
+ID du test : TESTREGISTER-011
+Titre du Test : Enregistrement d'un utilisateur sans email - API
+
+Pré-conditions :
+
+L'utilisateur est connecté au site et se trouve sur la page home
+
+Étapes :
+Inscrire dans l'outil de test API l'adresse du serveur API à tester : http://localhost:5555/api/users.
+Choisir la requête POST.
+Dans le Body choisir le format "raw" "json" et inscrire les données fournies.
+
+Résultats attendus :
+
+Code status 400.
+La réponse est un objet.
+La propriété message existe dans la réponse
+la réponse à une propriété "success"
+la réponse à une propriété "status"
+le message de la réponse doit inclure "Vos données ne sont pas valides"
+le success est à false
+
+Post-conditions :
+Le compte ne doit pas être enregistré dans la base de données
+
+Données utilisées :
+{
+  "firstname": "toto",
+  "lastname": "grandtoto",
+  "password": "Toto*1234",
+  "pseudo": "toto",
+  "avatar": "https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE"
+}
+
+ID du Test : TSTREGISTER-012
+Titre du Test : Enregistrement d'un utilisateur sans email - front
+
+Pré-conditions :
+
+L'utilisateur est connecté au site et se trouve sur la page home
+
+Étapes :
+
+
+Données utilisées :
+  "firstname": "toto",
+  "lastname": "grandtoto",
+  "password": "Toto*1234",
+  "pseudo": "toto",
+  "avatar": "https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE"
+
+-------------------------------------------------------------------------------------------------------------------------------------
+ID du test : TESTREGISTER-013
+Titre du Test : Enregistrement d'un utilisateur sans mot de passe - API
+
+Pré-conditions :
+
+L'utilisateur est connecté au site et se trouve sur la page home
+
+Étapes :
+Inscrire dans l'outil de test API l'adresse du serveur API à tester : http://localhost:5555/api/users.
+Choisir la requête POST.
+Dans le Body choisir le format "raw" "json" et inscrire les données fournies.
+
+Résultats attendus :
+
+Code status 400.
+La réponse est un objet.
+La propriété message existe dans la réponse
+la réponse à une propriété "success"
+la réponse à une propriété "status"
+le message de la réponse doit inclure "Vos données ne sont pas valides"
+le success est à false
+
+Post-conditions :
+Le compte ne doit pas être enregistré dans la base de données
+
+Données utilisées :
+{
+  "firstname": "toto",
+  "lastname": "grandtoto",
+  "email": "toto3@toto.fr",
+  "pseudo": "toto",
+  "avatar": "https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE"
+}
+
+ID du Test : TSTREGISTER-014
+Titre du Test : Enregistrement d'un utilisateur sans mot de passe - front
+
+Pré-conditions :
+
+L'utilisateur est connecté au site et se trouve sur la page home
+
+Étapes :
+
+
+Données utilisées :
+  "firstname": "toto",
+  "lastname": "grandtoto",
+  "email": "toto3@toto.fr",
+  "pseudo": "toto",
+  "avatar": "https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE"
+-------------------------------------------------------------------------------------------------------------------------------------
+ID du test : TESTREGISTER-015
+Titre du Test : Enregistrement d'un utilisateur avec un email existant - API
+
+Pré-conditions :
+
+L'utilisateur est connecté au site et se trouve sur la page home
+
+Étapes :
+Inscrire dans l'outil de test API l'adresse du serveur API à tester : http://localhost:5555/api/users.
+Choisir la requête POST.
+Dans le Body choisir le format "raw" "json" et inscrire les données fournies (reprise du test TESTREGISTER-001).
+
+Résultats attendus :
+
+Code status 409.
+La réponse est un objet.
+La propriété message existe dans la réponse
+la réponse à une propriété "success"
+la réponse à une propriété "status"
+le message de la réponse doit contenir : "est déjà utilisé par un autre utlisateur"
+le success est à false
+
+Post-conditions :
+Le compte créé doit être enregistré dans la base de données
+
+Données utilisées :
+{
+  "firstname": "toto",
+  "lastname": "grandtoto",
+  "email": "toto@toto.fr",
+  "password": "Toto*1234",
+  "pseudo": "toto",
+  "avatar": "https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE"
+}
+
+ID du Test : TSTREGISTER-016
+Titre du Test : Enregistrement d'un utilisateur avec un email existant - front
+
+Pré-conditions :
+
+L'utilisateur est connecté au site et se trouve sur la page home
+
+Étapes :
+
+
+Données utilisées :
+  "firstname": "toto",
+  "lastname": "grandtoto",
+  "email": "toto@toto.fr",
+  "password": "Toto*1234",
+  "pseudo": "toto",
+  "avatar": "https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.ign.com%2Favatar-generations&psig=AOvVaw0haq2nlxUkFUKUk9Odd05N&ust=1721399573855000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiSoqPnsIcDFQAAAAAdAAAAABAE"
+

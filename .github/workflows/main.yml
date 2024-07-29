@@ -23,39 +23,42 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-
-  postman-run:
-    runs-on: ubuntu-latest
-    steps:
       - name: Install Newman
         run: npm install -g newman
-
       - name: Run Postman tests
         run: |
-          newman run /postman/Projet-final.postman_collection.json -e /postman/projet_final.postman_environment.json
-
-      - name: Upload Newman results
-        uses: actions/upload-artifact@v2
-        with:
-          name: newman-results
-          path: newman
-
-  jmeter-run:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up JMeter
-        run: |
-          wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.tgz
-          tar -xvf apache-jmeter-5.6.3.tgz
-          export PATH=$PATH:$PWD/apache-jmeter-5.6.3/bin
-
-      - name: Run JMeter tests
-        run: |
-          jmeter -n -t projet-final/test_Jmeter/HTTP Request2.jmx -l projet-final/test_Jmeter/resultatTestProjetFinal.csv
-
-      - name: Upload JMeter results
-        uses: actions/upload-artifact@v2
-        with:
-          name: jmeter-results
-          path: path/to/results.jtl
+          newman run ./postman/Projet-final.postman_collection.json -e ./postman/projet_final.postman_environment.json
+#  postman-run:
+##    runs-on: ubuntu-latest
+#    steps:
+#      - name: Install Newman
+#        run: npm install -g newman
+#
+#      - name: Run Postman tests
+#        run: |
+#          newman run /postman/Projet-final.postman_collection.json -e /postman/projet_final.postman_environment.json
+#
+#      - name: Upload Newman results
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: newman-results
+#          path: newman
+#
+#  jmeter-run:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Set up JMeter
+#        run: |
+#          wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.tgz
+#          tar -xvf apache-jmeter-5.6.3.tgz
+#          export PATH=$PATH:$PWD/apache-jmeter-5.6.3/bin
+#
+#      - name: Run JMeter tests
+#        run: |
+#          jmeter -n -t projet-final/test_Jmeter/HTTP Request2.jmx -l projet-final/test_Jmeter/resultatTestProjetFinal.csv
+#
+#      - name: Upload JMeter results
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: jmeter-results
+#          path: path/to/results.jtl

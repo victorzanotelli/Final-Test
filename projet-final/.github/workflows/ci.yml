@@ -1,0 +1,61 @@
+name: Ci
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+
+  postman-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Newman
+        run: npm install -g newman
+
+      - name: Run Postman tests
+        run: |
+          newman run projet-final/postman/Projet-final.postman_collection.json -e projet-final/postman/projet_final.postman_environment.json
+
+      - name: Upload Newman results
+        uses: actions/upload-artifact@v2
+        with:
+          name: newman-results
+          path: newman
+
+  jmeter-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up JMeter
+        run: |
+          wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.1.tgz
+          tar -xvf apache-jmeter-5.4.1.tgz
+          export PATH=$PATH:$PWD/apache-jmeter-5.4.1/bin
+
+      - name: Run JMeter tests
+        run: |
+          jmeter -n -t path/to/your/HTTP Request2.jmx -l path/to/results.jtl
+
+      - name: Upload JMeter results
+        uses: actions/upload-artifact@v2
+        with:
+          name: jmeter-results
+          path: path/to/results.jtl

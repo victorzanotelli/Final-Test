@@ -33,7 +33,7 @@ jobs:
 
       - name: Run Postman tests
         run: |
-          newman run /Projet-final.postman_collection.json -e /Projet-final.postman_collection.json
+          newman run /postman/Projet-final.postman_collection.json -e /postman/projet_final.postman_environment.json
 
       - name: Upload Newman results
         uses: actions/upload-artifact@v2

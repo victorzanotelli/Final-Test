@@ -46,13 +46,13 @@ jobs:
     steps:
       - name: Set up JMeter
         run: |
-          wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.1.tgz
-          tar -xvf apache-jmeter-5.4.1.tgz
-          export PATH=$PATH:$PWD/apache-jmeter-5.4.1/bin
+          wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.tgz
+          tar -xvf apache-jmeter-5.6.3.tgz
+          export PATH=$PATH:$PWD/apache-jmeter-5.6.3/bin
 
       - name: Run JMeter tests
         run: |
-          jmeter -n -t path/to/your/HTTP Request2.jmx -l path/to/results.jtl
+          jmeter -n -t projet-final/test_Jmeter/HTTP Request2.jmx -l projet-final/test_Jmeter/resultatTestProjetFinal.csv
 
       - name: Upload JMeter results
         uses: actions/upload-artifact@v2

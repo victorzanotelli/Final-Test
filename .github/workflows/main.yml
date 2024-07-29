@@ -25,9 +25,19 @@ jobs:
         run:
           npm i
           npm run setup
-      - name : Run server
+
+      - name : Run api
         run:
-          npm run setup
+          cd api
+          nohup npm start &
+      - name : Run client
+        run :
+          cd client
+          nohup npm start &
+
+      - name: Wait for services to start
+        run: sleep 30
+
       - name: Install Newman
         run: npm install -g newman
       - name: Run Postman tests

@@ -22,7 +22,12 @@ jobs:
           node-version: '20.2.0'
 
       - name: Install dependencies
-        run: npm install
+        run:
+          npm i
+          npm run setup
+      - name : Run server
+        run:
+          npm run setup
       - name: Install Newman
         run: npm install -g newman
       - name: Run Postman tests
